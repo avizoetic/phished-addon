@@ -81,7 +81,7 @@ export const sendReport = async (mime, email) => {
       })
       .then((res) => {
         const reportresponse = res.data;
-
+        // console.log("report response", reportresponse);
         return reportresponse;
       });
   } catch (error) {
