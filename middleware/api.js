@@ -43,11 +43,17 @@ export const getMime = async (url, auth) => {
 
         const raw = JSON.stringify(object);
 
-        var part = msgmime.parts.filter(function (part) {
-          return part.mimeType == "text/html";
+        var part = msgmime?.parts?.filter(function (part) {
+          return part?.mimeType == "text/html";
         });
 
-        const parsing = part[0]?.body?.data;
+        var parsing;
+
+        if (part) {
+          parsing = part[0]?.body?.data;
+        } else {
+          parsing = msgmime?.body?.data;
+        }
 
         var content = "";
         if (parsing) {
